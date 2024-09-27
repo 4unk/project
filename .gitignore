@@ -1,0 +1,7 @@
+.py_env/*
+._pycashe_/*
+.vscode
+.base/_pycashe_/*
+.config/_pycashe_/*
+.pages/_pycashe_/*
+.env
