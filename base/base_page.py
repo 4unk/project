@@ -12,7 +12,7 @@ class BasePage:
 
 
     def open(self):
-        with allure.step(f"Open{self.PAGE_URL} page"):
+        with allure.step(f"Open {self.PAGE_URL} page"):
             self.driver.get(self.PAGE_URL)
 
 

@@ -5,3 +5,4 @@
 .config/__pycashe__/*
 .pages/__pycashe__/*
 .env
+.tests/__pycashe__/*
