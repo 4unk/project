@@ -2,10 +2,10 @@ services:
   regression:
     #image: python:3.12.0a4-alpine3.17
     build:
-      context: C:\Users\whit3\project
+      context: .
       dockerfile: Dockerfile
     volumes:
-      - C:\Users\whit3\project:/usr/workspace
+      - ./:/usr/workspace
     command: /bin/sh -c "pip3 install pytest && pytest -sv --alluredir=allure-results"
     working_dir: /usr/workspace
     environment:
