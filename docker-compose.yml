@@ -1,4 +1,5 @@
-version: '2.29.6'
+#version: '3'
+name: UI-test
 services:
   regression:
     image: python:3.12.0a4-alpine3.17
