@@ -1,6 +1,6 @@
 name: UI_Tests
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   # Jobs name
@@ -15,13 +15,25 @@ jobs:
           sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
           sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
       - uses: actions/checkout@v2
+      - name: Copy gh-pages to GitHub runner
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: ./.github/gh-pages
+
       - name: Run UI-tests via docker-compose
         env:
           LOGIN: ${{ secrets.LOGIN }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           docker-compose up --exit-code-from regression || true
+
+      - name: Copy history from gh-pages to allure-results
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/gh-pages/history/* allure-results/history
 
       - name: Generate Allure report
         run: |
