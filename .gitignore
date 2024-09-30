@@ -1,0 +1,8 @@
+.py_env/
+.__pycashe__/
+.vscode
+.base/__pycashe__/
+.config/__pycashe__/
+.pages/__pycashe__/
+.env
+.tests/__pycashe__/
