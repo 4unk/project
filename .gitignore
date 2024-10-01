@@ -6,3 +6,4 @@
 .pages/__pycashe__/
 .env
 .tests/__pycashe__/
+.vscode/
